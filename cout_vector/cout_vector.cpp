@@ -19,7 +19,6 @@ std::ostream& operator<<(ostream& os, vector<Type_>& coutvec){
 int main(void){
     vector<int> vec = {1,2,3,5,7,12};
     vector<double> d_vec = {3.14, 1.59};
-
     cout << vec << endl;
     cout << d_vec << endl;
 }
