@@ -10,8 +10,9 @@ using namespace std;
 template<typename Type_>
 std::ostream& operator<<(ostream& os, vector<Type_>& coutvec){
     cout << "{";
-    for(auto element: coutvec){
-        os << element << ", ";
+    for(auto itr = coutvec.begin(); itr != coutvec.end(); itr++){
+        if(itr != coutvec.end()-1)    os << *itr << ", ";
+        else                          os << *itr;           // 最後の列にはカンマは要らないので付けずにcout
     }
     cout << "}" << endl;
     return os;
