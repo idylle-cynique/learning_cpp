@@ -21,6 +21,18 @@ using std::string;
 using std::vector;
 
 // 出来れば型テンプレートを使ってある程度汎用的に取り扱えるようなものにしたい
+
+map<int, int> counter(vector<int> arg_vec){
+    map<int, int> count_map;
+    int key;
+    for(auto ele: arg_vec){
+        key = ele;
+        if(count_map.find(key) != count_map.end()) count_map[key] += 1;
+        else count_map[key] = 1;
+    }
+    return count_map;
+}
+
 map<string, int> counter(string sample){
     map<string,int> count_map;
     string key;
@@ -50,5 +62,21 @@ int main(void){
         cout << itr->first << ": " << itr->second << endl;  
     }
     cout << "}" << endl;
-    return 0;
+
+
+    long long int n = 314159265359;
+    vector<int> numbers;
+
+    while(n > 0){
+        numbers.push_back(n%10);
+        n /= 10;
+    }
+
+    map<int,int> number_data = counter(numbers);
+    for(auto itr=number_data.begin(); itr!=number_data.end(); itr++){
+        if(itr == number_data.begin())      cout << "{" << endl;
+        cout << itr->first << ": " << itr->second << endl;  
+    }
+    cout << "}" << endl;
+    
 }
