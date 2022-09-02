@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <vector>
+#include <unordered_map>
 #include <map>
 #include <string>
 
@@ -19,11 +20,12 @@ using std::endl;
 using std::map;
 using std::string;
 using std::vector;
+using std::unordered_map;
 
 // 出来れば型テンプレートを使ってある程度汎用的に取り扱えるようなものにしたい
 
-map<int, int> counter(vector<int> arg_vec){
-    map<int, int> count_map;
+unordered_map<int, int> counter(vector<int> arg_vec){
+    unordered_map<int, int> count_map;
     int key;
     for(auto ele: arg_vec){
         key = ele;
@@ -33,8 +35,8 @@ map<int, int> counter(vector<int> arg_vec){
     return count_map;
 }
 
-map<string, int> counter(string sample){
-    map<string,int> count_map;
+unordered_map<string, int> counter(string sample){
+    unordered_map<string,int> count_map;
     string key;
 
     for(int i=0; i<sample.size(); i++){
@@ -54,7 +56,7 @@ int main(void){
                     "Before you call him a man?";
     cout << phrase << endl;
 
-    map<string,int> string_data = counter(phrase);
+    unordered_map<string,int> string_data = counter(phrase);
 
     for(auto itr=string_data.begin(); itr!=string_data.end(); itr++){
         if(itr == string_data.begin())      cout << "{" << endl;
@@ -72,7 +74,7 @@ int main(void){
         n /= 10;
     }
 
-    map<int,int> number_data = counter(numbers);
+    unordered_map<int,int> number_data = counter(numbers);
     for(auto itr=number_data.begin(); itr!=number_data.end(); itr++){
         if(itr == number_data.begin())      cout << "{" << endl;
         cout << itr->first << ": " << itr->second << endl;  
